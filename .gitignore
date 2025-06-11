@@ -1,0 +1,38 @@
+Environnement virtuel
+
+rawflow_env/
+env/
+venv/
+*.env
+Fichiers Python
+
+*.pyc
+pycache/
+*.pyo
+*.pyd
+Base de données SQLite
+
+db.sqlite3
+Fichiers de configuration sensibles
+
+*.local_settings.py
+*.secret
+Fichiers IDE
+
+.idea/
+.vscode/
+Fichiers système
+
+.DS_Store
+Thumbs.db
+Fichiers de build
+
+*.egg-info/
+dist/
+build/
+Fichiers de logs
+
+*.log
+Fichiers statiques collectés
+
+staticfiles/

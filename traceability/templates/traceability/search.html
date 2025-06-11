@@ -1,0 +1,43 @@
+{% extends 'traceability/base.html' %}
+
+{% block title %}RawFlow - Recherche{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold text-[#003087] mb-4">Rechercher une transaction</h1>
+<form method="get" class="mb-6">
+    <input type="text" name="q" value="{{ query }}"
+           class="w-full p-2 border rounded mb-2" placeholder="Entrez l’ID du produit">
+    <button type="submit" class="bg-[#003087] text-white px-4 py-2 rounded hover:bg-[#00256c]">
+        Rechercher
+    </button>
+</form>
+{% if transactions %}
+    <h2 class="text-xl text-[#2C3E50] mb-4">Résultats pour "{{ query }}"</h2>
+    <table class="w-full border-collapse">
+        <thead>
+            <tr class="bg-[#ECF0F1]">
+                <th class="p-2 border">ID</th>
+                <th class="p-2 border">Industrie</th>
+                <th class="p-2 border">Origine</th>
+                <th class="p-2 border">Détails</th>
+                <th class="p-2 border">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td class="p-2 border">{{ transaction.product_id }}</td>
+                    <td class="p-2 border">{{ transaction.industry }}</td>
+                    <td class="p-2 border">{{ transaction.origin }}</td>
+                    <td class="p-2 border">{{ transaction.details }}</td>
+                    <td class="p-2 border">{{ transaction.timestamp }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    {% if query %}
+        <p class="text-[#2C3E50]">Aucune transaction trouvée pour "{{ query }}".</p>
+    {% endif %}
+{% endif %}
+{% endblock %}

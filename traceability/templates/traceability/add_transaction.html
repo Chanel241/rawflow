@@ -1,0 +1,30 @@
+{% extends 'traceability/base.html' %}
+
+{% block title %}RawFlow - Ajouter une transaction{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold text-[#003087] mb-4">Ajouter une transaction</h1>
+{% if error %}
+    <p class="text-red-500 mb-4">{{ error }}</p>
+{% endif %}
+<form method="post" class="bg-white p-6 rounded shadow">
+    {% csrf_token %}
+    <div class="mb-4">
+        <label class="block text-[#2C3E50] font-semibold" for="product_id">ID du produit</label>
+        <input type="text" name="product_id" id="product_id" class="w-full p-2 border rounded" required>
+    </div>
+    <div class="mb-4">
+        <label class="block text-[#2C3E50] font-semibold" for="industry">Industrie</label>
+        <input type="text" name="industry" id="industry" class="w-full p-2 border rounded" required>
+    </div>
+    <div class="mb-4">
+        <label class="block text-[#2C3E50] font-semibold" for="origin">Origine</label>
+        <input type="text" name="origin" id="origin" class="w-full p-2 border rounded" required>
+    </div>
+    <div class="mb-4">
+        <label class="block text-[#2C3E50] font-semibold" for="details">Détails (JSON)</label>
+        <textarea name="details" id="details" class="w-full p-2 border rounded" rows="5" required>{"name": "", "quantity": 0}</textarea>
+    </div>
+    <button type="submit" class="bg-[#27AE60] text-white px-4 py-2 rounded hover:bg-[#219653]">Ajouter</button>
+</form>
+{% endblock %}

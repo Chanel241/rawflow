@@ -1,0 +1,55 @@
+{% extends 'traceability/base.html' %}
+
+{% block title %}RawFlow - Inscription{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold text-[#003087] mb-4">Inscription</h1>
+{% if form.errors %}
+    <p class="text-red-500 mb-4">Erreur dans le formulaire. Veuillez vérifier vos informations.</p>
+{% endif %}
+<form method="post" class="bg-white p-6 rounded shadow">
+    {% csrf_token %}
+    <div class="mb-4">
+        <label class="block text-[#2C3E50] font-semibold" for="{{ form.username.id_for_label }}">Nom d'utilisateur</label>
+        <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}"
+               class="w-full p-2 border rounded" value="{{ form.username.value|default:'' }}"
+               required>
+        {% if form.username.errors %}
+            <p class="text-red-500 text-sm">{{ form.username.errors }}</p>
+        {% endif %}
+    </div>
+    <div class="mb-4">
+        <label class="block text-[#2C3E50] font-semibold" for="{{ form.email.id_for_label }}">Email</label>
+        <input type="email" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}"
+               class="w-full p-2 border rounded" value="{{ form.email.value|default:'' }}">
+        {% if form.email.errors %}
+            <p class="text-red-500 text-sm">{{ form.email.errors }}</p>
+        {% endif %}
+    </div>
+    <div class="mb-4">
+        <label class="block text-[#2C3E50] font-semibold" for="{{ form.password1.id_for_label }}">Mot de passe</label>
+        <input type="password" name="{{ form.password1.name }}" id="{{ form.password1.id_for_label }}"
+               class="w-full p-2 border rounded" required>
+        {% if form.password1.errors %}
+            <p class="text-red-500 text-sm">{{ form.password1.errors }}</p>
+        {% endif %}
+    </div>
+    <div class="mb-4">
+        <label class="block text-[#2C3E50] font-semibold" for="{{ form.password2.id_for_label }}">Confirmer le mot de passe</label>
+        <input type="password" name="{{ form.password2.name }}" id="{{ form.password2.id_for_label }}"
+               class="w-full p-2 border rounded" required>
+        {% if form.password2.errors %}
+            <p class="text-red-500 text-sm">{{ form.password2.errors }}</p>
+        {% endif %}
+    </div>
+    <div class="mb-4">
+        <label class="block text-[#2C3E50] font-semibold" for="id_role">Rôle</label>
+        <select name="role" id="id_role" class="w-full p-2 border rounded" required>
+            <option value="producer">Producteur</option>
+            <option value="processor">Transformateur</option>
+        </select>
+    </div>
+    <button type="submit" class="bg-[#27AE60] text-white px-4 py-2 rounded hover:bg-[#219653]">S'inscrire</button>
+</form>
+<p class="mt-4 text-[#2C3E50]">Déjà un compte ? <a href="{% url 'account_login' %}" class="text-[#003087]">Connectez-vous</a></p>
+{% endblock %}
