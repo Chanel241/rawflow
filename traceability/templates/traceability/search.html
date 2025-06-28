@@ -37,7 +37,6 @@
     </table>
 {% else %}
     {% if query %}
-        <p class="text-[#2C3E50]">Aucune transaction trouvée pour "{{ query }}".</p>
-    {% endif %}
+    <a href="{% url 'traceability:export_pdf' %}?q={{ query }}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Exporter en PDF</a>
 {% endif %}
 {% endblock %}
