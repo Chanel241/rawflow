@@ -8,4 +8,5 @@ urlpatterns = [
     path('accounts/signup/', CustomSignupView.as_view(), name='account_signup'),
     path('accounts/', include('allauth.urls')),
     path('', include('traceability.urls')),
+    path('export-pdf/', views.export_pdf, name='export_pdf'),
 ]

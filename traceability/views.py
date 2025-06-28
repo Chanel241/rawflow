@@ -10,6 +10,9 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from .serializers import TransactionSerializer
 from django.db.models import Q
+from django.http import HttpResponse
+from weasyprint import HTML
+from django.template.loader import render_to_string
 
 def init_blockchain():
     blockchain = Blockchain()
@@ -130,3 +133,27 @@ class TransactionViewSet(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
     permission_classes = [IsAuthenticated]
+
+
+@login_required
+def export_pdf(request):
+    query = request.GET.get('q', '')
+    transactions = Transaction.objects.filter(
+        Q(product_id__icontains=query) |
+        Q(industry__icontains=query) |
+        Q(origin__icontains=query)
+    ) if query else []
+
+    html_string = render_to_string('traceability/pdf_template.html', {
+        'transactions': transactions,
+        'query': query,
+        'user': request.user
+    })
+
+    html = HTML(string=html_string)
+    pdf = html.write_pdf()
+
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="transactions_{query}.pdf"'
+    response.write(pdf)
+    return response
