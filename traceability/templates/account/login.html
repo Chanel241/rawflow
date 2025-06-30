@@ -1,35 +1,22 @@
 {% extends 'traceability/base.html' %}
-
-{% block title %}RawFlow - Connexion{% endblock %}
-
+{% load i18n %}
+{% block title %}Connexion - RawFlow{% endblock %}
 {% block content %}
-<h1 class="text-3xl font-bold text-[#003087] mb-4">Connexion</h1>
-{% if form.errors %}
-    <p class="text-red-500 mb-4">Nom d'utilisateur ou mot de passe incorrect.</p>
-{% endif %}
-{% if form.non_field_errors %}
-    <p class="text-red-500 mb-4">{{ form.non_field_errors }}</p>
-{% endif %}
-<form method="post" class="bg-white p-6 rounded shadow">
-    {% csrf_token %}
-    <div class="mb-4">
-        <label class="block text-[#2C3E50] font-semibold" for="id_login">Nom d'utilisateur</label>
-        <input type="text" name="login" id="id_login"
-               class="w-full p-2 border rounded" value="{{ form.login.value|default:'' }}"
-               required>
-        {% if form.login.errors %}
-            <p class="text-red-500 text-sm">{{ form.login.errors }}</p>
-        {% endif %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center mb-4">Connexion</h2>
+                <form method="post" class="p-4">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+                </form>
+                <p class="text-center mt-3">
+                    Pas de compte ? <a href="{% url 'account_signup' %}" class="text-primary">S'inscrire</a>
+                </p>
+            </div>
+        </div>
     </div>
-    <div class="mb-4">
-        <label class="block text-[#2C3E50] font-semibold" for="id_password">Mot de passe</label>
-        <input type="password" name="password" id="id_password"
-               class="w-full p-2 border rounded" required>
-        {% if form.password.errors %}
-            <p class="text-red-500 text-sm">{{ form.password.errors }}</p>
-        {% endif %}
-    </div>
-    <button type="submit" class="bg-[#27AE60] text-white px-4 py-2 rounded hover:bg-[#219653]">Se connecter</button>
-</form>
-<p class="mt-4 text-[#2C3E50]">Pas de compte ? <a href="{% url 'account_signup' %}" class="text-[#003087]">Inscrivez-vous</a></p>
+</div>
 {% endblock %}

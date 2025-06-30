@@ -1,0 +1,60 @@
+{% extends 'traceability/base.html' %}
+   {% block title %}Accueil - RawFlow{% endblock %}
+   {% block content %}
+   <div class="bg-overlay">
+       <div class="text-center py-5 mt-5">
+           <h1 class="display-4 fw-bold mb-4">Bienvenue sur RawFlow</h1>
+           <p class="lead mb-5">
+               RawFlow est une plateforme révolutionnaire de traçabilité des matières premières basée sur la blockchain. Suivez vos produits de l'origine à la destination avec une transparence inégalée et une sécurité garantie. Que vous soyez producteur ou transformateur, RawFlow simplifie la gestion de vos transactions tout en assurant leur intégrité.
+           </p>
+           <div class="mb-5">
+               <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg me-3">Se connecter</a>
+           </div>
+       </div>
+       <div class="container">
+           <h2 class="text-center mb-4">Pourquoi choisir RawFlow ?</h2>
+           <div class="row">
+               <div class="col-md-4 mb-4">
+                   <div class="card">
+                       <div class="card-body">
+                           <h5 class="card-title">Transparence</h5>
+                           <p class="card-text">Chaque transaction est enregistrée sur une blockchain, garantissant une traçabilité complète et vérifiable.</p>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4 mb-4">
+                   <div class="card">
+                       <div class="card-body">
+                           <h5 class="card-title">Sécurité</h5>
+                           <p class="card-text">La technologie blockchain protège vos données contre les altérations et les accès non autorisés.</p>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4 mb-4">
+                   <div class="card">
+                       <div class="card-body">
+                           <h5 class="card-title">Facilité d'utilisation</h5>
+                           <p class="card-text">Une interface intuitive pour les producteurs et transformateurs, avec des outils comme l’export PDF.</p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <!-- Footer -->
+       <footer class="footer py-3">
+           <div class="container">
+               <div class="row">
+                   <div class="col-md-6 text-left">
+                       <p class="mb-0 text-white">© 2025 RawFlow. Tous droits réservés.</p>
+                   </div>
+                   <div class="col-md-6 text-right">
+                       <p class="mb-0">
+                           <a href="#" class="text-white me-3">Conditions d'utilisation</a>
+                           <a href="#" class="text-white">Politique de confidentialité</a>
+                       </p>
+                   </div>
+               </div>
+           </div>
+       </footer>
+   </div>
+   {% endblock %}

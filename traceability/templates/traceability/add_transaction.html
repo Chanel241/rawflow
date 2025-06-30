@@ -1,29 +1,21 @@
 {% extends 'traceability/base.html' %}
-
-{% block title %}Ajouter une transaction - RawFlow{% endblock %}
-
+{% block title %}Ajouter une Transaction - RawFlow{% endblock %}
 {% block content %}
-<div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
-    <h1 class="text-2xl font-bold text-[#003087] mb-4">Ajouter une transaction</h1>
-    
-    {% if error %}
-        <p class="text-red-500 mb-4">{{ error }}</p>
-    {% endif %}
-
-    <form method="POST" action="{% url }}" title="'traceability:add_transaction' %}">
-        {% csrf_token %}
-        {% for field in form %}
-            <div class="mb-4">
-                <label for="{{ field.id_for_label }}" class="block text-gray-700">{{ field.label }}</label>
-                {{ field }}
-                {% if field.errors %}
-                    <p class="text-red-500 text-sm">{{ field.errors }}</p>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center mb-4">Ajouter une Transaction</h2>
+                {% if error %}
+                    <div class="alert alert-danger" role="alert">{{ error }}</div>
                 {% endif %}
+                <form method="post" class="p-4">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success w-100">Ajouter</button>
+                </form>
             </div>
-        {% endfor %}
-        <button type="submit" class="bg-[#003087] text-white px-4 py-2 rounded hover:bg-blue-800">
-            Ajouter
-        </button>
-    </form>
+        </div>
+    </div>
 </div>
 {% endblock %}
