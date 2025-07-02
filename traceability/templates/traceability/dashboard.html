@@ -1,8 +1,24 @@
 {% extends 'traceability/base.html' %}
-{% block title %}Tableau de bord - RawFlow{% endblock %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'traceability/css/dashboard.css' %}?v=1.7"> <!-- Nouveau paramètre de version -->
+{% endblock %}
+
 {% block content %}
-<div class="card mb-4">
-    <div class="card-body">
+<div class="full-width-card mb-4">
+    <div class="card-body text-center">
+        {% if messages %}
+            <p>Détection de messages : {{ messages|length }}</p>
+            {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    <p>Message brut : {{ message }}</p>
+                    <p>Message affiché : {{ message|safe }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Aucun message détecté.</p>
+        {% endif %}
         <h2 class="text-center mb-4">Tableau de bord</h2>
         {% if is_valid %}
             <div class="alert alert-success" role="alert">La blockchain est valide.</div>
@@ -11,21 +27,23 @@
         {% endif %}
     </div>
 </div>
-<div class="row">
-    {% for block in blocks %}
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Bloc #{{ block.index }}</h5>
-                    <p class="card-text"><strong>Hachage :</strong> {{ block.hash|slice:":10" }}...</p>
-                    <p class="card-text"><strong>Hachage précédent :</strong> {{ block.previous_hash|slice:":10" }}...</p>
-                    <p class="card-text"><strong>Timestamp :</strong> {{ block.timestamp }}</p>
-                    <p class="card-text"><strong>Transactions :</strong> {{ block.transactions }}</p>
+<div class="container">
+    <div class="row justify-content-center" style="max-width: 1200px; margin-left: 10%; margin-right: auto;">
+        {% for block in blocks %}
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Bloc #{{ block.index }}</h5>
+                        <p class="card-text"><strong>Hachage :</strong> {{ block.hash|slice:":10" }}...</p>
+                        <p class="card-text"><strong>Hachage précédent :</strong> {{ block.previous_hash|slice:":10" }}...</p>
+                        <p class="card-text"><strong>Timestamp :</strong> {{ block.timestamp }}</p>
+                        <p class="card-text"><strong>Transactions :</strong> {{ block.transactions }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    {% empty %}
-        <p class="text-center">Aucun bloc dans la blockchain.</p>
-    {% endfor %}
+        {% empty %}
+            <p class="text-center">Aucun bloc dans la blockchain.</p>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

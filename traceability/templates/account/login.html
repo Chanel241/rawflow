@@ -1,20 +1,36 @@
 {% extends 'traceability/base.html' %}
-{% load i18n %}
-{% block title %}Connexion - RawFlow{% endblock %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'traceability/css/login.css' %}?v=1.1">
+{% endblock %}
+
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <h2 class="text-center mb-4">Connexion</h2>
-                <form method="post" class="p-4">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary w-100">Se connecter</button>
-                </form>
-                <p class="text-center mt-3">
-                    Pas de compte ? <a href="{% url 'account_signup' %}" class="text-primary">S'inscrire</a>
-                </p>
+<div class="login-wrapper">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4 login-form-container">
+            <div class="card login-container">
+                <div class="card-body">
+                    <h2 class="text-center mb-4">Connexion</h2>
+                    <form method="post" class="p-4">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                {{ field.label_tag }}
+                                {{ field }}
+                            </div>
+                            {% if field.name == 'password' %}
+                                <div class="forgot-password">
+                                    <a href="#" class="text-primary">Mot de passe oublié ?</a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <button type="submit" class="btn btn-primary w-100 mt-3">Se connecter</button>
+                    </form>
+                    <p class="text-center mt-3">
+                        Pas de compte ? <a href="{% url 'account_signup' %}" class="text-primary">S'inscrire</a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>

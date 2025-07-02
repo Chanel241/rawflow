@@ -1,0 +1,17 @@
+/* Styles spécifiques pour search */
+body {
+    background-color: #87ceeb; 
+}
+
+.table {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.btn-success {
+    background: #2ECC71;
+}
+
+.btn-success:hover {
+    background: #27AE60;
+}

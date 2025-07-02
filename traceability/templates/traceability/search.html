@@ -1,5 +1,10 @@
 {% extends 'traceability/base.html' %}
-{% block title %}Recherche - RawFlow{% endblock %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'traceability/css/search.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="card mb-4">
     <div class="card-body">

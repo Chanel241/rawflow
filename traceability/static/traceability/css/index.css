@@ -1,0 +1,55 @@
+/* Styles spécifiques pour index */
+.bg-overlay {
+    width: 100vw; 
+    height: 100vh;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.bg-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 0;
+}
+
+.card {
+    background: linear-gradient(to right, #003087, #0057B8);
+}
+
+.card-title {
+    color: #FFFFFF;
+}
+
+.lead, .card-text {
+    color: #FFFFFF;
+}
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.centered-content {
+    width: 90%; 
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}

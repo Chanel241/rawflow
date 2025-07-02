@@ -1,5 +1,10 @@
 {% extends 'traceability/base.html' %}
-{% block title %}Ajouter une Transaction - RawFlow{% endblock %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'traceability/css/add_transaction.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-8">

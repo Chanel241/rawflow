@@ -1,0 +1,40 @@
+body {
+    background-color: #87ceeb; 
+}
+
+.card {
+    border: 2px solid #030303;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    width: 100%;
+    padding: 0; 
+}
+
+.card-body {
+    padding: 5px;
+    text-align: center;
+    background-color: #faf8f8; 
+}
+
+.alert {
+    margin-bottom: 10px;
+    padding: 10px;
+    display: block !important;
+    opacity: 1 !important;
+}
+
+.full-width-card {
+    width: 100vw; 
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-44%); 
+}
+
+.col-md-4 {
+    max-width: 330px;
+    flex: 0 0 auto;
+    margin: 0 1px;
+}

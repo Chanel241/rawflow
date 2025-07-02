@@ -1,0 +1,94 @@
+/* Styles spécifiques pour login */
+body {
+    background-color: #87ceeb !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+}
+
+.login-wrapper {
+    min-height: calc(100vh - 100px) !important;
+    padding: 80px 0 !important;
+}
+
+.login-form-container {
+    display: flex !important;
+    justify-content: flex-end !important; 
+    width: 60% !important; 
+}
+
+.login-container {
+    max-width: 600px !important; 
+    margin-left: 20px !important; 
+    padding: 20px !important;
+    background: #fff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.login-container h2 {
+    color: #003087 !important;
+    font-size: 2rem !important;
+}
+
+.login-container .card-body {
+    font-size: 1.2rem !important;
+}
+
+.login-container .form-group {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 10px !important; 
+}
+
+.login-container .form-group label {
+    margin-right: 10px !important;
+    min-width: 100px !important; 
+    text-align: right !important;
+}
+
+.login-container .form-group input {
+    flex: 1 !important; 
+}
+
+.login-container .form-group input[type="checkbox"] {
+    margin-top: 20px !important; 
+    margin-right: 200px !important; 
+}
+
+.login-container .form-group label[for="id_remember"] {
+    margin-top: 20px !important; 
+    margin-left: 0 !important; 
+}
+
+.login-container .forgot-password {
+    text-align: left !important;
+    margin-top: 20px !important; 
+    margin-left: 0 !important; 
+}
+
+.login-container .forgot-password a {
+    font-size: 1rem !important;
+}
+
+/* Styles pour header et footer fixes */
+.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+}
+
+.footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+}
+
+/* Ajuster le contenu pour éviter le chevauchement */
+body > .container {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}

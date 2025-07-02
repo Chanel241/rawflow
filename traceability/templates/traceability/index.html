@@ -1,60 +1,75 @@
 {% extends 'traceability/base.html' %}
-   {% block title %}Accueil - RawFlow{% endblock %}
-   {% block content %}
-   <div class="bg-overlay">
-       <div class="text-center py-5 mt-5">
-           <h1 class="display-4 fw-bold mb-4">Bienvenue sur RawFlow</h1>
-           <p class="lead mb-5">
-               RawFlow est une plateforme révolutionnaire de traçabilité des matières premières basée sur la blockchain. Suivez vos produits de l'origine à la destination avec une transparence inégalée et une sécurité garantie. Que vous soyez producteur ou transformateur, RawFlow simplifie la gestion de vos transactions tout en assurant leur intégrité.
-           </p>
-           <div class="mb-5">
-               <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg me-3">Se connecter</a>
-           </div>
-       </div>
-       <div class="container">
-           <h2 class="text-center mb-4">Pourquoi choisir RawFlow ?</h2>
-           <div class="row">
-               <div class="col-md-4 mb-4">
-                   <div class="card">
-                       <div class="card-body">
-                           <h5 class="card-title">Transparence</h5>
-                           <p class="card-text">Chaque transaction est enregistrée sur une blockchain, garantissant une traçabilité complète et vérifiable.</p>
-                       </div>
-                   </div>
-               </div>
-               <div class="col-md-4 mb-4">
-                   <div class="card">
-                       <div class="card-body">
-                           <h5 class="card-title">Sécurité</h5>
-                           <p class="card-text">La technologie blockchain protège vos données contre les altérations et les accès non autorisés.</p>
-                       </div>
-                   </div>
-               </div>
-               <div class="col-md-4 mb-4">
-                   <div class="card">
-                       <div class="card-body">
-                           <h5 class="card-title">Facilité d'utilisation</h5>
-                           <p class="card-text">Une interface intuitive pour les producteurs et transformateurs, avec des outils comme l’export PDF.</p>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-       <!-- Footer -->
-       <footer class="footer py-3">
-           <div class="container">
-               <div class="row">
-                   <div class="col-md-6 text-left">
-                       <p class="mb-0 text-white">© 2025 RawFlow. Tous droits réservés.</p>
-                   </div>
-                   <div class="col-md-6 text-right">
-                       <p class="mb-0">
-                           <a href="#" class="text-white me-3">Conditions d'utilisation</a>
-                           <a href="#" class="text-white">Politique de confidentialité</a>
-                       </p>
-                   </div>
-               </div>
-           </div>
-       </footer>
-   </div>
-   {% endblock %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'traceability/css/index.css' %}">
+<style>
+    .bg-overlay {
+        background-image: url('{% static "traceability/images/background.jpg" %}');
+        background-size: 100% 100%; /* Force l’image à remplir exactement */
+        background-position: 0 0; /* Colle au coin supérieur gauche */
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw; /* Largeur totale de la fenêtre */
+        height: 100vh; /* Couvre toute la hauteur initiale */
+        min-height: 100%; /* S’étend avec le contenu */
+        z-index: -1;
+    }
+    .content-wrapper {
+        position: relative;
+        z-index: 1;
+        padding: 0; /* Supprime le padding pour tester */
+    }
+    .centered-content {
+        max-width: 1200px; /* Limite la largeur pour un centrage naturel */
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="bg-overlay"></div>
+    <div class="text-center py-5 centered-content">
+        <h1 class="display-4 fw-bold mb-4 text-white">Bienvenue sur RawFlow</h1>
+        <p class="lead mb-5 text-white">
+            RawFlow est une plateforme révolutionnaire de traçabilité des matières premières basée sur la blockchain. Suivez vos produits de l'origine à la destination avec une transparence inégalée et une sécurité garantie. Que vous soyez producteur ou transformateur, RawFlow simplifie la gestion de vos transactions tout en assurant leur intégrité.
+        </p>
+        <div class="mb-5">
+            <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg me-3">Se connecter</a>
+        </div>
+    </div>
+    <div class="container py-5 centered-content">
+        <h2 class="text-center mb-4 text-white">Pourquoi choisir RawFlow ?</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Transparence</h5>
+                        <p class="card-text">Chaque transaction est enregistrée sur une blockchain, garantissant une traçabilité complète et vérifiable.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sécurité</h5>
+                        <p class="card-text">La technologie blockchain protège vos données contre les altérations et les accès non autorisés.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Facilité d'utilisation</h5>
+                        <p class="card-text">Une interface intuitive pour les producteurs et transformateurs, avec des outils comme l’export PDF.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
