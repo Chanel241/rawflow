@@ -6,26 +6,72 @@
 <style>
     .bg-overlay {
         background-image: url('{% static "traceability/images/background.jpg" %}');
-        background-size: 100% 100%; /* Force l’image à remplir exactement */
-        background-position: 0 0; /* Colle au coin supérieur gauche */
+        background-size: 100% 100%; 
+        background-position: 0 0; 
         background-repeat: no-repeat;
         position: absolute;
         top: 0;
         left: 0;
-        width: 100vw; /* Largeur totale de la fenêtre */
-        height: 100vh; /* Couvre toute la hauteur initiale */
-        min-height: 100%; /* S’étend avec le contenu */
+        width: 100vw; 
+        height: 100vh; 
+        min-height: 100%; 
         z-index: -1;
     }
     .content-wrapper {
         position: relative;
         z-index: 1;
-        padding: 0; /* Supprime le padding pour tester */
+        padding: 0; 
     }
     .centered-content {
-        max-width: 1200px; /* Limite la largeur pour un centrage naturel */
-        margin-left: auto;
+        max-width: 1200px; 
+        margin-left: 10%; 
         margin-right: auto;
+    }
+
+    /* Styles spécifiques pour le bouton */
+    .login-btn {
+        background-color: #27AE60 !important; 
+        color: #FFFFFF !important;
+        width: 200px !important;
+        transition: background-color 0.3s ease !important;
+        border: none !important; 
+        outline: none !important; 
+        box-shadow: none !important; 
+        font-size: 1.2rem !important; 
+        padding: 15px 30px !important; 
+        border-radius: 10px !important; 
+        font-weight: bold !important; 
+        border-color: transparent !important;
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-appearance: none !important; 
+        -moz-appearance: none !important;
+        appearance: none !important;
+        cursor: pointer !important; 
+    }
+
+    .login-btn:hover {
+        background-color: #2ECC71 !important; 
+        color: #FFFFFF !important;
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
+    }
+
+    .login-btn:focus {
+        background-color: #27AE60 !important; 
+        color: #FFFFFF !important;
+        outline: none !important; 
+        box-shadow: none !important;
+        border-color: transparent !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .login-btn:active {
+        background-color: #27AE60 !important; 
+        color: #FFFFFF !important;
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
     }
 </style>
 {% endblock %}
@@ -39,12 +85,14 @@
             RawFlow est une plateforme révolutionnaire de traçabilité des matières premières basée sur la blockchain. Suivez vos produits de l'origine à la destination avec une transparence inégalée et une sécurité garantie. Que vous soyez producteur ou transformateur, RawFlow simplifie la gestion de vos transactions tout en assurant leur intégrité.
         </p>
         <div class="mb-5">
-            <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg me-3">Se connecter</a>
+            <form action="{% url 'account_login' %}" method="get" style="display: inline;">
+                <button type="submit" class="login-btn">Se connecter</button>
+            </form>
         </div>
     </div>
     <div class="container py-5 centered-content">
         <h2 class="text-center mb-4 text-white">Pourquoi choisir RawFlow ?</h2>
-        <div class="row">
+        <div class="row justify-content-start">
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">

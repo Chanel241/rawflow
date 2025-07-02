@@ -1,6 +1,16 @@
 /* Styles spécifiques pour search */
 body {
     background-color: #87ceeb; 
+    padding-top: 60px; /* Espacement pour header fixe */
+    padding-bottom: 60px; /* Ajusté pour espacement */
+    min-height: 100vh; /* Assure que le body prend toute la hauteur */
+    display: flex;
+    flex-direction: column;
+}
+
+.card, .results-container {
+    margin-left: auto;
+    margin-right: auto; /* Centrage */
 }
 
 .table {
@@ -14,4 +24,12 @@ body {
 
 .btn-success:hover {
     background: #27AE60;
+}
+
+/* Style pour le footer en bas */
+footer {
+    margin-top: auto; /* Pousse le footer en bas */
+    padding: 20px 0;
+    background-color: #f8f9fa; /* Couleur par défaut */
+    width: 100%;
 }

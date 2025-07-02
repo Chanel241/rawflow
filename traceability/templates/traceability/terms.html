@@ -1,0 +1,19 @@
+{% extends 'traceability/base.html' %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'traceability/css/terms.css' %}?v=1.0">
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto" style="max-width: 800px; width: 90%; margin-top: 50px;">
+    <h1 class="text-center">Conditions d'utilisation</h1>
+    <p>Bienvenue sur RawFlow. En utilisant notre service, vous acceptez les conditions suivantes :</p>
+    <ul>
+        <li>Utilisation conforme aux lois locales.</li>
+        <li>Interdiction de toute activité illégale.</li>
+        <li>Responsabilité de l'utilisateur pour ses données.</li>
+    </ul>
+    <p>Pour plus de détails, contactez-nous à support@rawflow.com.</p>
+</div>
+{% endblock %}

@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'widget_tweaks',
     'rest_framework',
     'traceability.apps.TraceabilityConfig',
 ]

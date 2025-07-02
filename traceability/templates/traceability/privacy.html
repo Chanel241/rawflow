@@ -1,0 +1,19 @@
+{% extends 'traceability/base.html' %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'traceability/css/privacy.css' %}?v=1.0">
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto" style="max-width: 800px; width: 90%; margin-top: 50px;">
+    <h1 class="text-center">Politique de confidentialité</h1>
+    <p>Chez RawFlow, nous protégeons vos données personnelles :</p>
+    <ul>
+        <li>Collecte uniquement des données nécessaires.</li>
+        <li>Stockage sécurisé et chiffré.</li>
+        <li>Pas de partage avec des tiers sans consentement.</li>
+    </ul>
+    <p>Pour plus d'informations, consultez support@rawflow.com.</p>
+</div>
+{% endblock %}

@@ -7,4 +7,56 @@ body {
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.custom-field {
+    font-size: 1.1rem;
+    color: black;
+    padding: 0.3rem;
+    width: 100%;
+    max-width: 500px !important;
+}
+
+.password-confirm {
+    max-width: 400px !important; /* Largeur spécifique pour password2 */
+}
+
+.form-label {
+    font-size: 1.2rem;
+    color: black;
+}
+
+.custom-button {
+    font-size: 1.2rem;
+    color: white;
+    padding: 0.3rem 0;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    width: 200px !important; /* Forcer la largeur à 200px */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.custom-button:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.text-primary {
+    color: #0d6efd !important;
+}
+
+.text-muted {
+    font-size: 0.9rem;
 }

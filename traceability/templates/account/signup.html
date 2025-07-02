@@ -1,4 +1,5 @@
 {% extends 'traceability/base.html' %}
+{% load widget_tweaks %} <!-- Charger explicitement widget_tweaks -->
 
 {% block styles %}
 {% load static %}
@@ -7,23 +8,38 @@
 
 {% block content %}
 <div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card">
+    <div class="col-md-8 offset-md-2">
+        <div class="card mt-5 mb-5">
             <div class="card-body">
-                <h2 class="text-center mb-4">Inscription</h2>
-                <form method="post" class="p-4">
+                <h2 class="text-center mb-4" style="font-size: 2.5rem; color: black;">Inscription</h2>
+                <form method="post" class="p-4 custom-form">
                     {% csrf_token %}
-                    {{ form.as_p }}
-                    <div class="mb-3">
-                        <label for="role" class="form-label">Rôle</label>
-                        <select name="role" id="role" class="form-select" required>
+                    {% for field in form %}
+                        <div class="mb-4">
+                            {{ field.label_tag }}
+                            {% if field.name == 'password2' %}
+                                {% render_field field class="custom-field password-confirm" %}
+                            {% else %}
+                                {% render_field field class="custom-field" %}
+                            {% endif %}
+                            {% if field.help_text %}
+                                <small class="text-muted">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% if field.errors %}
+                                <div class="text-danger">{{ field.errors }}</div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <div class="mb-4">
+                        <label for="role" class="form-label" style="font-size: 1.1rem; color: black;">Rôle</label>
+                        <select name="role" id="role" class="form-select custom-field" required style="font-size: 1.1rem; color: black;">
                             <option value="producer">Producteur</option>
                             <option value="processor">Transformateur</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+                    <button type="submit" class="btn btn-primary custom-button">S'inscrire</button>
                 </form>
-                <p class="text-center mt-3">
+                <p class="text-center mt-4" style="font-size: 1.1rem; color: black;">
                     Déjà inscrit ? <a href="{% url 'account_login' %}" class="text-primary">Se connecter</a>
                 </p>
             </div>

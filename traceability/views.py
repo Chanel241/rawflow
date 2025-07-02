@@ -182,3 +182,18 @@ class TransactionViewSet(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
     permission_classes = [IsAuthenticated]
+
+# Ajout des vues manquantes
+def terms(request):
+    return render(request, 'traceability/terms.html')
+
+def privacy(request):
+    return render(request, 'traceability/privacy.html')
+
+def password_reset(request):
+    if request.method == 'POST':
+        # Logique de réinitialisation (à implémenter avec un backend email)
+        email = request.POST.get('email')
+        # Exemple : Vérifier l'email et envoyer un lien
+        return render(request, 'traceability/password_reset.html', {'message': 'Un lien de réinitialisation a été envoyé.'})
+    return render(request, 'traceability/password_reset.html')
