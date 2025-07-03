@@ -10,8 +10,8 @@ body {
 .login-wrapper {
     min-height: 100vh !important;
     display: flex !important;
-    justify-content: center !important; /* Centrage horizontal */
-    align-items: center !important; /* Centrage vertical */
+    justify-content: center !important;
+    align-items: center !important;
     padding: 60px 0 !important;
 }
 
@@ -19,13 +19,13 @@ body {
     display: flex !important;
     justify-content: center !important;
     width: 100% !important;
-    max-width: 800px !important; /* Limite pour un centrage symétrique */
+    max-width: 800px !important;
     margin: 0 auto !important;
 }
 
 .login-container {
     max-width: 600px !important;
-    width: 100% !important; /* S’assure une largeur cohérente */
+    width: 100% !important;
     margin: 0 auto !important;
     padding: 20px !important;
     background: #fff !important;

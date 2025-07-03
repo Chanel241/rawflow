@@ -2,18 +2,23 @@
 
 {% block styles %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'traceability/css/terms.css' %}?v=1.0">
+<link rel="stylesheet" href="{% static 'traceability/css/terms.css' %}?v=1.1"> 
 {% endblock %}
 
 {% block content %}
-<div class="container mx-auto" style="max-width: 800px; width: 90%; margin-top: 50px;">
-    <h1 class="text-center">Conditions d'utilisation</h1>
-    <p>Bienvenue sur RawFlow. En utilisant notre service, vous acceptez les conditions suivantes :</p>
-    <ul>
-        <li>Utilisation conforme aux lois locales.</li>
-        <li>Interdiction de toute activité illégale.</li>
-        <li>Responsabilité de l'utilisateur pour ses données.</li>
-    </ul>
-    <p>Pour plus de détails, contactez-nous à support@rawflow.com.</p>
+<div class="container mx-auto terms-wrapper" style="margin-top: 50px;">
+    <div class="card terms-card">
+        <div class="card-body">
+            <h1 class="text-center terms-title">Conditions d'Utilisation</h1>
+            <p class="terms-text">Bienvenue sur RawFlow ! En accédant et en utilisant nos services, vous acceptez les conditions suivantes qui régissent votre utilisation de notre plateforme :</p>
+            <ul class="terms-list">
+                <li><strong>Conformité légale :</strong> Vous vous engagez à utiliser nos services conformément aux lois et réglementations en vigueur dans votre juridiction.</li>
+                <li><strong>Interdiction d'activités illégales :</strong> Toute activité illégale, y compris la fraude ou la distribution de contenu inapproprié, est strictement interdite et entraînera la suspension de votre compte.</li>
+                <li><strong>Responsabilité de l'utilisateur :</strong> Vous êtes seul responsable de la sécurité de vos données et de leur utilisation. RawFlow ne saurait être tenu responsable des pertes dues à une mauvaise gestion de votre part.</li>
+            </ul>
+            <p class="terms-text">Nous nous réservons le droit de modifier ces conditions à tout moment. Les mises à jour seront publiées sur cette page, et nous vous notifierons par e-mail ou via notre site si nécessaire. Pour toute question ou clarification, contactez notre équipe à <a href="mailto:support@rawflow.com" class="terms-link">support@rawflow.com</a>.</p>
+            <p class="terms-text">Dernière mise à jour : 03 juillet 2025. Merci de consulter régulièrement cette page pour rester informé.</p>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -17,9 +17,10 @@ body {
     color: #fff !important;
 }
 
-.navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .btn-link:hover {
-    color: #27AE60 !important;
+.navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .logout-btn:hover {
+    color: #27AE60 !important; 
     transition: color 0.3s ease;
+    background: none !important; 
 }
 
 .btn-primary {

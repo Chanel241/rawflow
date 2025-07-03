@@ -11,9 +11,39 @@
     {% load static %}
     {% block styles %}
     {% endblock %}
+    <!-- Styles inline critiques pour forcer l'application -->
+    <style>
+        .navbar {
+            background: linear-gradient(to right, #003087, #0057B8) !important;
+            z-index: 100 !important;
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+        .navbar .navbar-nav .nav-link, .navbar .navbar-nav .logout-btn {
+            padding: 0.25rem 0.5rem !important;
+            line-height: 1.5 !important;
+        }
+        .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .logout-btn:hover {
+            color: #27AE60 !important;
+            background: none !important;
+            transition: color 0.3s ease !important;
+        }
+        .footer {
+            background: linear-gradient(to right, #003087, #0057B8) !important;
+            color: #FFFFFF !important;
+            z-index: 100 !important;
+        }
+        .footer a {
+            color: #FFFFFF !important;
+        }
+        .footer a:hover {
+            color: #27AE60 !important;
+        }
+    </style>
 </head>
 <body style="margin: 0 !important; padding: 0 !important; display: flex; flex-direction: column; min-height: 100vh;">
-    <nav class="navbar navbar-expand-lg" style="background: linear-gradient(to right, #003087, #0057B8); z-index: 100;">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid" style="padding: 0 !important; margin: 0 !important;">
             <a class="navbar-brand text-white" href="{% url 'traceability:index' %}">
                 RawFlow
@@ -36,9 +66,9 @@
                             <a class="nav-link text-white" href="{% url 'traceability:search' %}">Rechercher</a>
                         </li>
                         <li class="nav-item">
-                            <form action="{% url 'account_logout' %}" method="post">
+                            <form action="{% url 'account_logout' %}" method="post" class="mb-0">
                                 {% csrf_token %}
-                                <button type="submit" class="nav-link text-white btn btn-link p-0 m-0">Déconnexion</button>
+                                <button type="submit" class="nav-link text-white logout-btn" style="padding: 0.25rem 0.5rem !important; border: none !important; background: none !important; line-height: 1.5 !important;">Déconnexion</button>
                             </form>
                         </li>
                     {% else %}
@@ -57,7 +87,7 @@
         {% block content %}
         {% endblock %}
     </div>
-    <footer class="footer py-3" style="background: linear-gradient(to right, #003087, #0057B8); color: white; z-index: 100;">
+    <footer class="footer py-3">
         <div class="container" style="padding: 0 !important; margin: 0 !important; display: flex; justify-content: space-between; align-items: center; width: 100%;">
             <p class="mb-0">© 2025 RawFlow. Tous droits réservés.</p>
             <div class="ms-auto" style="display: flex; gap: 1rem;">
