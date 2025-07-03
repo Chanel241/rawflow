@@ -1,6 +1,6 @@
 /* Styles spécifiques pour signup */
 body {
-    background-color: #87ceeb; 
+    background-color: #87ceeb;
 }
 
 .card {
@@ -28,7 +28,7 @@ body {
 }
 
 .password-confirm {
-    max-width: 400px !important; /* Largeur spécifique pour password2 */
+    max-width: 400px !important;
 }
 
 .form-label {
@@ -40,17 +40,17 @@ body {
     font-size: 1.2rem;
     color: white;
     padding: 0.3rem 0;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-    width: 200px !important; /* Forcer la largeur à 200px */
+    background-color: #28a745; 
+    border-color: #28a745; 
+    width: 200px !important;
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
 
 .custom-button:hover {
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
+    background-color: #218838; 
+    border-color: #1e7e34; 
 }
 
 .text-primary {

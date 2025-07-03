@@ -1,16 +1,16 @@
 /* Styles spécifiques pour search */
 body {
     background-color: #87ceeb; 
-    padding-top: 60px; /* Espacement pour header fixe */
-    padding-bottom: 60px; /* Ajusté pour espacement */
-    min-height: 100vh; /* Assure que le body prend toute la hauteur */
+    padding-top: 60px; 
+    padding-bottom: 60px; 
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
 }
 
 .card, .results-container {
     margin-left: auto;
-    margin-right: auto; /* Centrage */
+    margin-right: auto; 
 }
 
 .table {
@@ -28,8 +28,8 @@ body {
 
 /* Style pour le footer en bas */
 footer {
-    margin-top: auto; /* Pousse le footer en bas */
+    margin-top: auto; 
     padding: 20px 0;
-    background-color: #f8f9fa; /* Couleur par défaut */
+    background-color: #f8f9fa; 
     width: 100%;
 }

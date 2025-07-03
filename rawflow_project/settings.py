@@ -1,7 +1,3 @@
-"""
-Django settings for rawflow_project project.
-"""
-
 import os
 from pathlib import Path
 from decouple import config
@@ -14,7 +10,7 @@ ALLOWED_HOSTS = ['*.onrender.com', '127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth',  
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -34,7 +30,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',  # Assuré d'être présent
+    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
@@ -51,9 +47,11 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',  # Assuré d'être présent
+                'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.static',
+                'django.template.context_processors.i18n',
             ],
+            'builtins': ['django.templatetags.static'],
         },
     },
 ]
@@ -90,11 +88,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 SITE_ID = 1
+AUTH_USER_MODEL = 'traceability.CustomUser'  
 ACCOUNT_SIGNUP_FIELDS = ['email', 'username*', 'password1*', 'password2*']
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_LOGIN_METHODS = {'username'}
-# LOGIN_REDIRECT_URL = '/'  # Commenté
 ACCOUNT_LOGIN_REDIRECT_URL = '/dashboard/'
+ACCOUNT_SIGNUP_REDIRECT_URL = '/accounts/login/'
 ACCOUNT_ADAPTER = 'traceability.adapters.CustomAccountAdapter'
 LOGIN_URL = 'traceability:account_login'
 
@@ -110,6 +109,18 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
+
+# Configuration de l'email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'chanelbirimbi@gmail.com' 
+EMAIL_HOST_PASSWORD = 'hdtccxsooiycgdiu' 
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = 'chanelbirimbi@gmail.com'
+
+SITE_URL = 'http://127.0.0.1:8000'  # Pour le développement
 
 LOGGING = {
     'version': 1,

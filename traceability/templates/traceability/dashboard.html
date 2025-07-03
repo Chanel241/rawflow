@@ -2,22 +2,18 @@
 
 {% block styles %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'traceability/css/dashboard.css' %}?v=1.7"> <!-- Nouveau paramètre de version -->
+<link rel="stylesheet" href="{% static 'traceability/css/dashboard.css' %}?v=1.7">
 {% endblock %}
 
 {% block content %}
 <div class="full-width-card mb-4">
     <div class="card-body text-center">
         {% if messages %}
-            <p>Détection de messages : {{ messages|length }}</p>
             {% for message in messages %}
-                <div class="alert alert-success" role="alert">
-                    <p>Message brut : {{ message }}</p>
-                    <p>Message affiché : {{ message|safe }}</p>
+                <div class="alert {% if 'error' in message.tags %}alert-danger{% else %}alert-success{% endif %}" role="alert">
+                    {{ message|safe }}
                 </div>
             {% endfor %}
-        {% else %}
-            <p>Aucun message détecté.</p>
         {% endif %}
         <h2 class="text-center mb-4">Tableau de bord</h2>
         {% if is_valid %}
@@ -37,7 +33,9 @@
                         <p class="card-text"><strong>Hachage :</strong> {{ block.hash|slice:":10" }}...</p>
                         <p class="card-text"><strong>Hachage précédent :</strong> {{ block.previous_hash|slice:":10" }}...</p>
                         <p class="card-text"><strong>Timestamp :</strong> {{ block.timestamp }}</p>
-                        <p class="card-text"><strong>Transactions :</strong> {{ block.transactions }}</p>
+                        <p class="card-text"><strong>Transactions :</strong> 
+                            {% if block.transactions|length > 0 %}{{ block.transactions|safe }}{% else %}Aucune transaction{% endif %}
+                        </p>
                     </div>
                 </div>
             </div>

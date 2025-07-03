@@ -2,18 +2,23 @@
 
 {% block styles %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'traceability/css/privacy.css' %}?v=1.0">
+<link rel="stylesheet" href="{% static 'traceability/css/privacy.css' %}?v=1.2"> 
 {% endblock %}
 
 {% block content %}
-<div class="container mx-auto" style="max-width: 800px; width: 90%; margin-top: 50px;">
-    <h1 class="text-center">Politique de confidentialité</h1>
-    <p>Chez RawFlow, nous protégeons vos données personnelles :</p>
-    <ul>
-        <li>Collecte uniquement des données nécessaires.</li>
-        <li>Stockage sécurisé et chiffré.</li>
-        <li>Pas de partage avec des tiers sans consentement.</li>
-    </ul>
-    <p>Pour plus d'informations, consultez support@rawflow.com.</p>
+<div class="container mx-auto privacy-wrapper" style="margin-top: 50px;">
+    <div class="card privacy-card">
+        <div class="card-body">
+            <h1 class="text-center privacy-title">Politique de Confidentialité</h1>
+            <p class="privacy-text">Chez RawFlow, nous accordons une priorité absolue à la protection de vos données personnelles. Voici comment nous procédons :</p>
+            <ul class="privacy-list">
+                <li><strong>Collecte responsable :</strong> Nous ne collectons que les données strictement nécessaires à la fourniture de nos services, telles que votre nom, adresse e-mail et informations de connexion.</li>
+                <li><strong>Sécurité renforcée :</strong> Vos données sont stockées sur des serveurs sécurisés, chiffrées avec des protocoles modernes (AES-256), et protégées contre les accès non autorisés.</li>
+                <li><strong>Confidentialité garantie :</strong> Nous ne partageons jamais vos informations avec des tiers sans votre consentement explicite, sauf si requis par la loi.</li>
+            </ul>
+            <p class="privacy-text">Nous utilisons vos données pour améliorer nos services et vous offrir une expérience personnalisée. Vous pouvez consulter, modifier ou supprimer vos données à tout moment via votre compte ou en nous contactant. Pour toute question ou demande, notre équipe est disponible à <a href="mailto:support@rawflow.com" class="privacy-link">support@rawflow.com</a>.</p>
+            <p class="privacy-text">Cette politique peut être mise à jour périodiquement. Nous vous informerons de tout changement important via notre site ou par e-mail. Dernière mise à jour : 03 juillet 2025.</p>
+        </div>
+    </div>
 </div>
 {% endblock %}

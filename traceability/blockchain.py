@@ -1,12 +1,12 @@
 import hashlib
 import json
-from datetime import datetime
+import time
 
 class Block:
     def __init__(self, index, transactions, timestamp, previous_hash):
         self.index = index
         self.transactions = transactions
-        self.timestamp = timestamp
+        self.timestamp = timestamp 
         self.previous_hash = previous_hash
         self.nonce = 0
         self.hash = self.calculate_hash()
@@ -15,10 +15,10 @@ class Block:
         block_string = json.dumps({
             'index': self.index,
             'transactions': self.transactions,
-            'timestamp': str(self.timestamp),
+            'timestamp': str(self.timestamp),  
             'previous_hash': self.previous_hash,
             'nonce': self.nonce
-        }, sort_keys=True)
+        }, sort_keys=True, default=str)
         return hashlib.sha256(block_string.encode()).hexdigest()
 
 class Blockchain:
@@ -28,7 +28,7 @@ class Blockchain:
         self.create_genesis_block()
 
     def create_genesis_block(self):
-        genesis_block = Block(0, [], datetime.now(), "0")
+        genesis_block = Block(0, [], int(time.time()), "0")
         genesis_block.hash = genesis_block.calculate_hash()
         self.chain.append(genesis_block)
 
@@ -39,7 +39,7 @@ class Blockchain:
         block = Block(
             len(self.chain),
             transactions,
-            datetime.now(),
+            int(time.time()),
             self.get_latest_block().hash
         )
         block.hash = block.calculate_hash()

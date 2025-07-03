@@ -12,6 +12,13 @@
         <div class="card mt-5 mb-5">
             <div class="card-body">
                 <h2 class="text-center mb-4" style="color: black;">Ajouter une Transaction</h2>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %}" role="alert" style="color: black;">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 {% if error %}
                     <div class="alert alert-danger" role="alert" style="color: black;">{{ error }}</div>
                 {% endif %}

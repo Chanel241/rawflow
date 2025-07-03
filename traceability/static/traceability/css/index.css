@@ -50,14 +50,14 @@ html, body {
 .centered-content {
     width: 90%; 
     max-width: 1200px;
-    margin-left: 10%; /* Décalage vers la droite */
+    margin-left: 10%; 
     margin-right: auto;
-    text-align: center; /* Centre le texte */
+    text-align: center; 
 }
 
 .content-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Permet le décalage */
-    padding-left: 5%; /* Décalage supplémentaire */
+    align-items: flex-start; 
+    padding-left: 5%; 
 }

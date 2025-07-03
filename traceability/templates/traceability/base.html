@@ -27,7 +27,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{% url 'traceability:dashboard' %}">Tableau de bord</a>
                         </li>
-                        {% if user.profile.role == 'producer' %}
+                        {% if user.profile.role == 'producer' or user.is_superuser %}
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{% url 'traceability:add_transaction' %}">Ajouter Transaction</a>
                             </li>

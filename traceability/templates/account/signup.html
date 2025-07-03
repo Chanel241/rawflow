@@ -1,5 +1,5 @@
 {% extends 'traceability/base.html' %}
-{% load widget_tweaks %} <!-- Charger explicitement widget_tweaks -->
+{% load widget_tweaks %} 
 
 {% block styles %}
 {% load static %}
@@ -30,16 +30,10 @@
                             {% endif %}
                         </div>
                     {% endfor %}
-                    <div class="mb-4">
-                        <label for="role" class="form-label" style="font-size: 1.1rem; color: black;">Rôle</label>
-                        <select name="role" id="role" class="form-select custom-field" required style="font-size: 1.1rem; color: black;">
-                            <option value="producer">Producteur</option>
-                            <option value="processor">Transformateur</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary custom-button">S'inscrire</button>
-                </form>
-                <p class="text-center mt-4" style="font-size: 1.1rem; color: black;">
+                    <!-- Le champ role sera maintenant géré par le formulaire personnalisé -->
+                    <button type="submit" class="btn btn-primary custom-button" style="background-color: #28a745; border-color: #28a745;">S'inscrire</button>
+                </div>
+                <p class="text-center" style="font-size: 1.1rem; color: black; margin-top: 0rem;"> <!-- Supprime la marge -->
                     Déjà inscrit ? <a href="{% url 'account_login' %}" class="text-primary">Se connecter</a>
                 </p>
             </div>
